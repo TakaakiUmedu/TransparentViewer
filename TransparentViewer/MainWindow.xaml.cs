@@ -71,13 +71,19 @@ namespace TransparentViewer {
 							files.Sort((a, b) => a.Name.CompareTo(b.Name));
 							var current_index = files.FindIndex((file) => current_file.FullName == file.FullName);
 							var next_index = current_index;
-							if ((Keyboard.Modifiers & ModifierKeys.Shift) == ModifierKeys.Shift) {
-								next_index--;
-							} else {
-								next_index++;
-							}
-							if (next_index >= files.Count) {
+							if (next_index < 0) {
 								next_index = 0;
+							} else {
+								if ((Keyboard.Modifiers & ModifierKeys.Shift) == ModifierKeys.Shift) {
+									next_index--;
+								} else {
+									next_index++;
+								}
+								if (next_index >= files.Count) {
+									next_index = 0;
+								} else if (next_index < 0) {
+									next_index = files.Count - 1;
+								}
 							}
 							Load(files[next_index]);
 						}
