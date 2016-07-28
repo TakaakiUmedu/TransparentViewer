@@ -1,0 +1,20 @@
+﻿<Window x:Class="TransparentViewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525" AllowsTransparency="True" WindowStyle="None" Background="Transparent" ResizeMode="CanResizeWithGrip" Topmost="True">
+    <Grid>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="0">
+            <Grid>
+
+                <ScrollViewer Margin="0" Focusable="False">
+                    <Image x:Name="image" Margin="0" Focusable="True" PreviewKeyDown="Window_KeyDown" MouseDown="image_MouseUp"/>
+                </ScrollViewer>
+            </Grid>
+        </Border>
+        <Slider x:Name="slider" Margin="10,0,10,10" VerticalAlignment="Bottom" Value="50" Maximum="100" ValueChanged="Slider_ValueChanged"/>
+
+        <Button Content="Load image" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Content="Close" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+
+    </Grid>
+</Window>
